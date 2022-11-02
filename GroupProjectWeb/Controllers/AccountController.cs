@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -44,6 +44,11 @@ namespace GroupProjectWeb.Controllers
             }
             con.Close();
             return View();    
+        }
+        private GroupProjectDataEntities db = new GroupProjectDataEntities();
+        public ActionResult Search(string cat, string subcat)
+        {
+            return View(db.tblProducts.Where(x => x.Category_Name.Contains(cat) && x.SubCategory_Name.Contains(subcat)).ToList());
         }
     }
 }
