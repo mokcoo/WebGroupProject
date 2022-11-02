@@ -1,4 +1,4 @@
-﻿@model GroupProjectWeb.Models.tblUser
+@model GroupProjectWeb.Models.tblUser
 
 @{
     ViewBag.Title = "Create";
@@ -17,7 +17,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.User_Name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.User_Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.User_Name, new { htmlAttributes = new { @class = "form-control" ,@required = "required" } })
                 @Html.ValidationMessageFor(model => model.User_Name, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -25,7 +25,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.User_Email, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.User_Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.User_Email, new { htmlAttributes = new { @class = "form-control" ,@required = "required" } })
                 @Html.ValidationMessageFor(model => model.User_Email, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -41,7 +41,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.User_Password, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.User_Password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.User_Password, new { htmlAttributes = new { @class = "form-control" ,@required = "required" } })
                 @Html.ValidationMessageFor(model => model.User_Password, "", new { @class = "text-danger" })
             </div>
         </div>
