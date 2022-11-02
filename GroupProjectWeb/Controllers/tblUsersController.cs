@@ -1,7 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -51,8 +53,14 @@ namespace GroupProjectWeb.Controllers
             if (ModelState.IsValid)
             {
                 db.tblUsers.Add(tblUser);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (DbUpdateException ex) {
+                    return View("error");
+                }
+                return RedirectToAction("../Account/Login");
             }
 
             return View(tblUser);
